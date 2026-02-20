@@ -4,6 +4,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import StatusCard from '../components/status-card';
 import { getSystemStatus, loadDrafts } from '../lib/actions'; 
 import { Message } from '@personal-ai/shared';
+import { fetchQR } from '../lib/api';
 import Link from 'next/link';
 import { QRCodeSVG } from 'qrcode.react';
 
@@ -17,7 +18,7 @@ export default function DashboardPage() {
             const [newStatus, drafts, qrRes] = await Promise.all([
                 getSystemStatus(),
                 loadDrafts(),
-                fetch('http://localhost:3001/api/auth/qr').then(r => r.json())
+                fetchQR()
             ]);
             setStatus(newStatus);
             setQrData(qrRes);

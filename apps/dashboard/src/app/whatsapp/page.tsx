@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { Message } from '@personal-ai/shared';
+import { fetchChats, fetchDrafts, markAsRead, sendDraft } from '../../lib/api';
 
 export default function WhatsAppChatPage() {
     const [chats, setChats] = useState<{ [sender: string]: any[] }>({});
@@ -12,8 +13,8 @@ export default function WhatsAppChatPage() {
     const fetchData = useCallback(async () => {
         try {
             const [chatsRes, draftsRes] = await Promise.all([
-                fetch('http://localhost:3001/api/chats').then(r => r.json()),
-                fetch('http://localhost:3001/api/drafts').then(r => r.json())
+                fetchChats(),
+                fetchDrafts()
             ]);
             setChats(chatsRes);
             setDrafts(draftsRes);
@@ -35,7 +36,7 @@ export default function WhatsAppChatPage() {
 
         // MARK AS READ: Inform backend to remove from drafts
         try {
-            await fetch(`http://localhost:3001/api/drafts/read/${sender}`, { method: 'POST' });
+            await markAsRead(sender);
             fetchData(); // Instant refresh to hide badge
         } catch (e) {
             console.error("Mark read failed", e);
@@ -46,13 +47,10 @@ export default function WhatsAppChatPage() {
         if (!selectedSender || !replyText) return;
         
         try {
-            // Using a generic "send manual" or using the sender info
-            // For now, we'll keep it simple and assume there's a draft or we send by sender
-            await fetch(`http://localhost:3001/api/drafts/manual-send`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ sender: selectedSender, content: replyText })
-            });
+            const draft = drafts.find(d => d.sender.replace(/[^a-zA-Z0-9]/g, '_') === selectedSender);
+            const draftId = draft?.id || "manual";
+
+            await sendDraft(draftId, replyText);
             setReplyText("");
             setSelectedSender(null);
             fetchData();

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { fetchBriefing } from '../../lib/api';
 
 export default function DailyBriefingPage() {
     const [briefing, setBriefing] = useState("");
@@ -10,8 +11,7 @@ export default function DailyBriefingPage() {
     const getBriefing = async () => {
         setLoading(true);
         try {
-            const res = await fetch('http://localhost:3001/api/briefing');
-            const data = await res.json();
+            const data = await fetchBriefing();
             setBriefing(data.briefing);
         } catch (e) {
             setBriefing("Report load nahi ho saki.");
