@@ -19,29 +19,29 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 
 WORKDIR /app
 
-# Copy package files
+# Copy ALL package files first for better caching
 COPY package*.json ./
 COPY apps/backend/package*.json ./apps/backend/
 COPY shared/package*.json ./shared/
 
-# Install dependencies (from root to handle workspaces)
+# Install dependencies
 RUN npm install
 
 # Copy source code
 COPY . .
 
-# Build shared package (Backend depends on this)
+# Build Shared Package
 RUN npm run build -w @personal-ai/shared
 
-# Build backend
-WORKDIR /app/apps/backend
-RUN npx tsc
+# Build Backend
+RUN npm run build -w backend
 
-# Back to root
-WORKDIR /app
+# Verify if index.js exists (for debugging in logs if it fails)
+RUN ls -R apps/backend/dist
 
 # Expose backend port
 EXPOSE 3001
 
-# Start the application using the workspace command
-CMD ["npm", "run", "start", "-w", "backend"]
+# Start the application
+# We use the explicit path to avoid any workspace resolution issues
+CMD ["node", "apps/backend/dist/index.js"]
