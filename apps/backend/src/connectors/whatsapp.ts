@@ -4,29 +4,39 @@ import { logger } from '../core/logger';
 import { MessageSource } from '../shared/types';
 import { ingestMessage } from '../core/ingest';
 import { config } from '../config/env'; 
+import fs from 'fs';
+import path from 'path';
 
 export class WhatsAppConnector {
     private client: Client;
     private isReady: boolean = false;
     private lastQR: string = "";
+    private authPath = './.wwebjs_auth';
 
     constructor() {
-        this.client = new Client({
+        this.client = this.createClient();
+        this.setupEvents();
+    }
+
+    private createClient() {
+        return new Client({
             authStrategy: new LocalAuth({
                 clientId: config.whatsapp.sessionId,
-                dataPath: './.wwebjs_auth'
+                dataPath: this.authPath
             }),
             puppeteer: {
                 headless: true,
                 executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
-                args: ['--no-sandbox', '--disable-setuid-sandbox']
+                args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--single-process']
             }
         });
+    }
 
+    private setupEvents() {
         this.client.on('qr', (qr) => {
             this.lastQR = qr;
             this.isReady = false;
-            logger.info('New QR Generated');
+            logger.info('--- NEW QR GENERATED ---');
             qrcode.generate(qr, { small: true });
         });
 
@@ -40,13 +50,14 @@ export class WhatsAppConnector {
         
         this.client.on('auth_failure', () => {
             this.isReady = false;
-            logger.error('WhatsApp Auth Failure');
+            logger.error('WhatsApp Auth Failure. Clearing session...');
+            this.hardReset(); // Auto-reset on failure
         });
 
         this.client.on('disconnected', () => {
             this.isReady = false;
             logger.warn('WhatsApp Disconnected');
-            this.client.initialize().catch(() => {});
+            this.initialize(); // Try to reconnect
         });
 
         this.client.on('message', async (message) => {
@@ -67,30 +78,47 @@ export class WhatsAppConnector {
         this.client.initialize().catch(err => logger.error('Init Error:', err));
     }
 
+    // New: Force reset session
+    public async hardReset() {
+        logger.warn('Performing Hard Reset of WhatsApp Client...');
+        try {
+            await this.client.destroy();
+        } catch (e) {}
+
+        // Delete session files
+        try {
+            const sessionDir = path.resolve(this.authPath);
+            if (fs.existsSync(sessionDir)) {
+                fs.rmSync(sessionDir, { recursive: true, force: true });
+                logger.info('Session files deleted.');
+            }
+        } catch (e) {
+            logger.error('Failed to delete session files:', e);
+        }
+
+        // Re-create and start
+        this.client = this.createClient();
+        this.setupEvents();
+        this.initialize();
+    }
+
     public isClientReady(): boolean { return this.isReady; }
     public getQR(): string { return this.lastQR; }
     public getClient() { return this.client; }
 
     public async sendMessage(to: string, content: string) {
-        if (!this.isReady) {
-            throw new Error('WhatsApp client is not connected.');
-        }
+        if (!this.isReady) throw new Error('WhatsApp client is not connected.');
         
         try {
-            // FIX: Ensure 'to' is a valid serialized ID
             let chatId = to;
             if (!chatId.includes('@c.us') && !chatId.includes('@g.us')) {
-                // Remove non-numeric chars and append suffix
                 chatId = chatId.replace(/[^0-9]/g, '') + '@c.us';
             }
-
-            // Using getChatById to ensure chat exists before sending (safer)
-            // Or just direct send if we trust the ID
             await this.client.sendMessage(chatId, content);
             logger.info(`Message sent to ${chatId}`);
         } catch (error: any) {
-            logger.error(`WhatsApp Send Error: ${error.message || error}`);
-            throw new Error(`Failed to send via WhatsApp: ${error.message || error}`);
+            logger.error(`WhatsApp Send Error: ${error.message}`);
+            throw error;
         }
     }
 }
