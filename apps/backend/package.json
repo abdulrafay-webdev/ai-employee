@@ -10,7 +10,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.24.1",
     "@personal-ai/shared": "*",
     "@prisma/client": "^5.9.1",
     "bullmq": "^5.1.0",
@@ -18,11 +17,12 @@
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
     "googleapis": "^131.0.0",
-    "openai": "^6.22.0",
     "prisma": "^5.9.1",
     "qrcode-terminal": "^0.12.0",
     "whatsapp-web.js": "^1.23.0",
-    "winston": "^3.11.0"
+    "winston": "^3.11.0",
+    "openai": "^4.28.0",
+    "@google/generative-ai": "^0.2.1"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.9",
@@ -38,6 +38,8 @@
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.3.3",
-    "vitest": "^1.2.2"
+    "vitest": "^1.2.2",
+    "server-destroy": "^1.0.1",
+    "@types/server-destroy": "^1.0.1"
   }
 }
