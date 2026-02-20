@@ -16,18 +16,21 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 
 WORKDIR /app
 
-# Copy and install dependencies
-COPY apps/backend/package*.json ./
-RUN npm install --production && npm install typescript tsc-alias
+# Copy the entire monorepo package files
+COPY package*.json ./
+COPY apps/backend/package*.json ./apps/backend/
+COPY shared/package*.json ./shared/
 
-# Copy source
-COPY apps/backend/ .
+# Install ALL dependencies first (required for workspaces)
+RUN npm install
 
-# Build
+# Copy everything
+COPY . .
+
+# Build backend
+WORKDIR /app/apps/backend
 RUN npx tsc
 
-# Expose
+# Final Expose and Command
 EXPOSE 3001
-
-# Start
 CMD ["node", "dist/index.js"]
