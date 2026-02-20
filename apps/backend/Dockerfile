@@ -1,38 +1,33 @@
-# Base image with Node.js
+# Base image
 FROM node:20-slim
 
-# Install necessary dependencies for Chrome (whatsapp-web.js)
+# Install Chromium and required libs
 RUN apt-get update && apt-get install -y \
     chromium \
-    fonts-ipafont-gothic \
-    fonts-wqy-zenhei \
-    fonts-thai-tlwg \
-    fonts-kacst \
     fonts-freefont-ttf \
     libxss1 \
     --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
-# Set Puppeteer environment variables
+# Set Puppeteer variables for Railway
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
-    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium \
+    NODE_ENV=production
 
 WORKDIR /app
 
-# Copy backend package files
+# Copy and install dependencies
 COPY apps/backend/package*.json ./
+RUN npm install --production && npm install typescript tsc-alias
 
-# Install dependencies
-RUN npm install
-
-# Copy backend source (which now includes local shared/ folder)
+# Copy source
 COPY apps/backend/ .
 
-# Build backend
+# Build
 RUN npx tsc
 
-# Expose port
+# Expose
 EXPOSE 3001
 
-# Start the application pointing to the exact compiled index
+# Start
 CMD ["node", "dist/index.js"]

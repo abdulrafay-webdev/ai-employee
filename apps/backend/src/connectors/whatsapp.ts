@@ -8,7 +8,7 @@ import { config } from '../config/env';
 export class WhatsAppConnector {
     private client: Client;
     private isReady: boolean = false;
-    private lastQR: string = ""; // Store last QR for API
+    private lastQR: string = "";
 
     constructor() {
         this.client = new Client({
@@ -18,20 +18,34 @@ export class WhatsAppConnector {
             }),
             puppeteer: {
                 headless: true,
-                args: ['--no-sandbox', '--disable-setuid-sandbox']
+                executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
+                args: [
+                    '--no-sandbox',
+                    '--disable-setuid-sandbox',
+                    '--disable-dev-shm-usage',
+                    '--disable-accelerated-2d-canvas',
+                    '--no-first-run',
+                    '--no-zygote',
+                    '--single-process', // Critical for saving RAM
+                    '--disable-gpu',
+                    '--disable-canvas-aa',
+                    '--disable-2d-canvas-clip-aa',
+                    '--disable-gl-drawing-for-tests',
+                    '--font-render-hinting=none'
+                ],
             }
         });
 
         this.client.on('qr', (qr) => {
-            this.lastQR = qr; // Save for dashboard
-            logger.info('--- NEW QR GENERATED (Available via API) ---');
+            this.lastQR = qr;
+            logger.info('New QR Generated');
             qrcode.generate(qr, { small: true });
         });
 
         this.client.on('ready', () => {
             this.isReady = true;
-            this.lastQR = ""; // Clear QR on connect
-            logger.info('✅ WhatsApp is READY!');
+            this.lastQR = "";
+            logger.info('✅ WhatsApp READY!');
         });
 
         this.client.on('message', async (message) => {
@@ -48,6 +62,7 @@ export class WhatsAppConnector {
     }
 
     public initialize() {
+        logger.info('Launching WhatsApp...');
         this.client.initialize().catch(err => logger.error('Init Error:', err));
     }
 
