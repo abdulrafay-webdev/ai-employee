@@ -18,6 +18,7 @@ model Message {
   suggestedReply String?
 }
 
+// NEW: Global Configuration Storage
 model Config {
   key   String @id
   value String

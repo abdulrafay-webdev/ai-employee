@@ -232,5 +232,197 @@
     "content": "Thik hai! Agar aapko kisi aur cheez ki zarurat ho tou bejhijhak batayega. Shukriya!",
     "type": "auto",
     "timestamp": 1771570841828
+  },
+  {
+    "role": "user",
+    "content": "Hello",
+    "type": "manual",
+    "timestamp": 1771598184000
+  },
+  {
+    "role": "assistant",
+    "content": "Rafay abhi busy hain (going outside for shopping).",
+    "type": "auto",
+    "timestamp": 1771598185890
+  },
+  {
+    "role": "user",
+    "content": "Hello",
+    "type": "manual",
+    "timestamp": 1771598360000
+  },
+  {
+    "role": "assistant",
+    "content": "As-salam-o-Alaikum! Kya haal chaal hain aap ke?",
+    "type": "auto",
+    "timestamp": 1771598362978
+  },
+  {
+    "role": "user",
+    "content": "May theek tum sunao",
+    "type": "manual",
+    "timestamp": 1771598374000
+  },
+  {
+    "role": "assistant",
+    "content": "Shukriya! Rafay abhi shopping par gaye hain, is liye wo thora busy hain. Aap kaise hain?",
+    "type": "auto",
+    "timestamp": 1771598376455
+  },
+  {
+    "role": "user",
+    "content": "Rafay kab ayega",
+    "type": "manual",
+    "timestamp": 1771598394000
+  },
+  {
+    "role": "assistant",
+    "content": "Rafay thodi der baad wapas aayenge, aap chinta na karein. Aap ko kuch kehna hai unse?",
+    "type": "auto",
+    "timestamp": 1771598399802
+  },
+  {
+    "role": "user",
+    "content": "Ap kon ?",
+    "type": "manual",
+    "timestamp": 1771598411000
+  },
+  {
+    "role": "assistant",
+    "content": "Main Saim hoon, Rafay ka personal assistant. Aapko kisi madad ki zarurat hai?",
+    "type": "auto",
+    "timestamp": 1771598414360
+  },
+  {
+    "role": "user",
+    "content": "Website banwani hay mjhe",
+    "type": "manual",
+    "timestamp": 1771598940000
+  },
+  {
+    "role": "assistant",
+    "content": "Aap kis tarah ki website banwanay ka soch rahe hain? Rafay abhi thora shopping par hain, lekin baad mein aapko is par madad karain gay.",
+    "type": "auto",
+    "timestamp": 1771598942626
+  },
+  {
+    "role": "user",
+    "content": "E-commerce website banwani hay WordPress per",
+    "type": "manual",
+    "timestamp": 1771598963000
+  },
+  {
+    "role": "assistant",
+    "content": "Acha, e-commerce website banwane ke liye WordPress ek behtareen option hai. Rafay jab waapas aayenge, to hum is par tafseel se baat kar sakte hain. Wo is tara ke projects mein kafi experienced hain, to aapko achi guidance milay gi!",
+    "type": "auto",
+    "timestamp": 1771598967585
+  },
+  {
+    "role": "user",
+    "content": "Website banwani hay mjhe",
+    "type": "manual",
+    "timestamp": 1771599177000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji, aapko kis tarah ki website chahiye? Kya aapko portfolio, personal blog, ya business website banwani hai? Pricing aam tor par 15k se 30k ke darmiyan hoti hai. Aap apni requirements bata dain, q kay main aapko isme behtar madad kar sakta hoon!",
+    "type": "auto",
+    "timestamp": 1771599181230
+  },
+  {
+    "role": "user",
+    "content": "E-commerce website banwani hay WordPress per",
+    "type": "manual",
+    "timestamp": 1771599204000
+  },
+  {
+    "role": "assistant",
+    "content": "Great! E-commerce website banwane ke liye WordPress par hum aapko full setup offer kar sakte hain. Isme product listings, payment gateways, aur responsive design shamil hoga. Aapki requirements kya hain? Koi specific features hain jo aap chahte hain? Is project ka budget aam tor par 20k se 30k tak hoga. Aap kaise proceed karna chahenge?",
+    "type": "auto",
+    "timestamp": 1771599207822
+  },
+  {
+    "role": "user",
+    "content": "Discount milayga ?",
+    "type": "manual",
+    "timestamp": 1771599245000
+  },
+  {
+    "role": "assistant",
+    "content": "Hum pricing ko customize kar sakte hain kuch conditions ke sath, lekin discount dena mushkil hota hai. Hum quality aur service par focus karte hain. Agar aap project ki details share karein, toh hum behtar madad kar sakte hain aur aapko best offer de sakte hain.",
+    "type": "draft",
+    "timestamp": 1771599249093
+  },
+  {
+    "role": "user",
+    "content": "Mjhe basics features chaiyay",
+    "type": "manual",
+    "timestamp": 1771599296000
+  },
+  {
+    "role": "assistant",
+    "content": "Basic features ke liye hum ye sab shamil kar sakte hain: \n1. Product Catalog \n2. Shopping Cart \n3. Secure Payment Gateway Integration \n4. User Registration and Login \n5. Order Tracking \n6. Mobile Responsiveness \n7. SEO Optimization \n\nAgar ye features aapko suit karte hain, toh mujhe batayein takay hum quote finalize kar sakein. Aam pricing iske liye 20k se shuru hoti hai. Kya aap aage barhna chahenge?",
+    "type": "auto",
+    "timestamp": 1771599300509
+  },
+  {
+    "role": "user",
+    "content": "Mera budget 15k hay",
+    "type": "manual",
+    "timestamp": 1771599330000
+  },
+  {
+    "role": "assistant",
+    "content": "Agar aapka budget 15k hai, toh hum kuch basic features ko customize kar sakte hain takay aapko best possible solution mil sake. Shayd kuch features ko simplify karna pade, lekin main aapki madad karne ko tayyar hoon. Kya aap specific features bata sakte hain jo aapke liye sab se zyada important hain? Taki hum iss budget mein aapke liye ek viable solution nikaal saken.",
+    "type": "draft",
+    "timestamp": 1771599334690
+  },
+  {
+    "role": "user",
+    "content": "Mjhe ye saray features chaiyay is budget may",
+    "type": "manual",
+    "timestamp": 1771599374000
+  },
+  {
+    "role": "assistant",
+    "content": "Aapke budget 15k mein ye saray features shamil karna mushkil hai, lekin hum kuch options explore kar sakte hain. Aapko kuch basic features mein compromise karna padega ya phir hum aapka project thora late bhi kar sakte hain takay aapka budget adjust ho sake. Kya aap kisi aur tareeqe se project par kaam karne ka soch rahe hain?",
+    "type": "draft",
+    "timestamp": 1771599379130
+  },
+  {
+    "role": "user",
+    "content": "Rafay kahan hain ?",
+    "type": "manual",
+    "timestamp": 1771599406000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mujhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771599409181
+  },
+  {
+    "role": "user",
+    "content": "Unhay inform kardena may un say khud baat karlounga",
+    "type": "manual",
+    "timestamp": 1771599437000
+  },
+  {
+    "role": "assistant",
+    "content": "Aapko koi specific message unhein dena hai? Main unhein inform kar dunga.",
+    "type": "draft",
+    "timestamp": 1771599440785
+  },
+  {
+    "role": "user",
+    "content": "Okay",
+    "type": "manual",
+    "timestamp": 1771599447000
+  },
+  {
+    "role": "assistant",
+    "content": "Main unhein aapka message de doon ga. Agar aapko aur kisi cheez ki zarurat ho toh batayein.",
+    "type": "draft",
+    "timestamp": 1771599450011
   }
 ]
