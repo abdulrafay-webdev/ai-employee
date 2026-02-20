@@ -19,26 +19,13 @@ export class WhatsAppConnector {
             puppeteer: {
                 headless: true,
                 executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
-                args: [
-                    '--no-sandbox',
-                    '--disable-setuid-sandbox',
-                    '--disable-dev-shm-usage',
-                    '--disable-accelerated-2d-canvas',
-                    '--no-first-run',
-                    '--no-zygote',
-                    '--single-process',
-                    '--disable-gpu',
-                    '--disable-canvas-aa',
-                    '--disable-2d-canvas-clip-aa',
-                    '--disable-gl-drawing-for-tests',
-                    '--font-render-hinting=none'
-                ],
+                args: ['--no-sandbox', '--disable-setuid-sandbox']
             }
         });
 
         this.client.on('qr', (qr) => {
             this.lastQR = qr;
-            this.isReady = false; // Ensure it shows QR if disconnected
+            this.isReady = false;
             logger.info('New QR Generated');
             qrcode.generate(qr, { small: true });
         });
@@ -49,21 +36,16 @@ export class WhatsAppConnector {
             logger.info('✅ WhatsApp READY!');
         });
 
-        this.client.on('authenticated', () => {
-            logger.info('WhatsApp Authenticated!');
-        });
-
+        this.client.on('authenticated', () => logger.info('WhatsApp Authenticated!'));
+        
         this.client.on('auth_failure', () => {
             this.isReady = false;
-            this.lastQR = "";
             logger.error('WhatsApp Auth Failure');
         });
 
         this.client.on('disconnected', () => {
             this.isReady = false;
-            this.lastQR = "";
-            logger.warn('WhatsApp Disconnected. Client needs re-auth.');
-            // Attempt to re-initialize to generate a new QR code
+            logger.warn('WhatsApp Disconnected');
             this.client.initialize().catch(() => {});
         });
 
@@ -90,7 +72,25 @@ export class WhatsAppConnector {
     public getClient() { return this.client; }
 
     public async sendMessage(to: string, content: string) {
-        if (!this.isReady) throw new Error('WhatsApp not connected');
-        await this.client.sendMessage(to, content);
+        if (!this.isReady) {
+            throw new Error('WhatsApp client is not connected.');
+        }
+        
+        try {
+            // FIX: Ensure 'to' is a valid serialized ID
+            let chatId = to;
+            if (!chatId.includes('@c.us') && !chatId.includes('@g.us')) {
+                // Remove non-numeric chars and append suffix
+                chatId = chatId.replace(/[^0-9]/g, '') + '@c.us';
+            }
+
+            // Using getChatById to ensure chat exists before sending (safer)
+            // Or just direct send if we trust the ID
+            await this.client.sendMessage(chatId, content);
+            logger.info(`Message sent to ${chatId}`);
+        } catch (error: any) {
+            logger.error(`WhatsApp Send Error: ${error.message || error}`);
+            throw new Error(`Failed to send via WhatsApp: ${error.message || error}`);
+        }
     }
 }

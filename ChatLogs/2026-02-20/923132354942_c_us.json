@@ -424,5 +424,491 @@
     "content": "Main unhein aapka message de doon ga. Agar aapko aur kisi cheez ki zarurat ho toh batayein.",
     "type": "draft",
     "timestamp": 1771599450011
+  },
+  {
+    "role": "user",
+    "content": "Main Saim hoon, Abdul Rafay ka professional assistant. Aapko website se related sab madad karne ke liye yahan hoon. Kya aap mujhe aapki website ki requirements bata sakte hain?",
+    "type": "manual",
+    "timestamp": 1771602576000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603232047
+  },
+  {
+    "role": "user",
+    "content": "Bilkul! Aapko kis type ki website chahiye? Kya aapke paas koi specific requirements hain? Hamari pricing 15k se 30k tak hoti hai. Chaliye, aapki requirements sunte hain aur kaam shuru karte hain!",
+    "type": "manual",
+    "timestamp": 1771602557000
+  },
+  {
+    "role": "user",
+    "content": "Hello! Kya mein aapki madad kar sakta hoon? Aap kis cheez mein interested hain?",
+    "type": "manual",
+    "timestamp": 1771601389000
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771601404000
+  },
+  {
+    "role": "user",
+    "content": "Wa Alaikum Assalam! Kaise hain aap? Kya aapko kisi cheez ki zaroorat hai?",
+    "type": "manual",
+    "timestamp": 1771602544000
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771602701000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603232969
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603232997
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603233020
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603233041
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603233122
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603235000
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603235000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603239967
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603236000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603240192
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603240227
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603236000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603240518
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603236000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603240590
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603236000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603240781
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603242000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603245364
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603242000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603245734
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603243000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603245792
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603243000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603245844
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603243000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603246160
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603243000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603246510
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603248000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603250316
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603248000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603250366
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603248000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603250459
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603248000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603250502
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603248000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603250551
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603249000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603251871
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603252000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603254746
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603253000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603254814
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603253000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603255028
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603253000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603255100
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603253000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603255201
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603254000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603256352
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603257000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603259916
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603258000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603260069
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603258000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603260219
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603258000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603260350
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603258000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603260616
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603259000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603261989
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603262000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603264670
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603262000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603265206
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603263000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603265331
+  },
+  {
+    "role": "user",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "manual",
+    "timestamp": 1771603264000
+  },
+  {
+    "role": "assistant",
+    "content": "Ji Rafay abhi thora busy hain, woh shopping mein phansay huay hain. Aap mjhe bata dain, main behtar guide kar sakta hoon ya unhein inform kar doonga.",
+    "type": "draft",
+    "timestamp": 1771603266375
+  },
+  {
+    "role": "assistant",
+    "content": "yes",
+    "type": "manual",
+    "timestamp": 1771604044548
   }
 ]

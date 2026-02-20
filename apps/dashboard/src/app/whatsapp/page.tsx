@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { Message } from '@personal-ai/shared';
-import { fetchChats, fetchDrafts, markAsRead, sendDraft } from '../../lib/api';
+import { fetchChats, fetchDrafts, markAsRead } from '../../lib/api';
 import Link from 'next/link';
 
 export default function WhatsAppChatPage() {
@@ -21,9 +21,7 @@ export default function WhatsAppChatPage() {
             ]);
             setChats(chatsRes);
             setDrafts(draftsRes);
-        } catch (e) {
-            console.error("Fetch failed", e);
-        }
+        } catch (e) { console.error("Fetch failed", e); }
     }, []);
 
     useEffect(() => {
@@ -36,31 +34,43 @@ export default function WhatsAppChatPage() {
         setSelectedSender(sender);
         const draft = drafts.find(d => d.sender.replace(/[^a-zA-Z0-9]/g, '_') === sender);
         setReplyText(draft?.suggestedReply || "");
-        setIsMobileView(true); // Show chat window on mobile
+        setIsMobileView(true);
 
-        // MARK AS READ: Inform backend to remove from drafts
         try {
             await markAsRead(sender);
-            fetchData(); // Instant refresh to hide badge
-        } catch (e) {
-            console.error("Mark read failed", e);
-        }
+            fetchData(); 
+        } catch (e) { console.error(e); }
     };
 
     const handleSend = async () => {
-        if (!selectedSender || !replyText) return;
+        if (!selectedSender || !replyText) {
+            alert("Sender or message content missing!");
+            return;
+        }
+        
         setLoading(true);
         try {
-            const draft = drafts.find(d => d.sender.replace(/[^a-zA-Z0-9]/g, '_') === selectedSender);
-            const draftId = draft?.id || "manual";
+            // Using the robust manual-send endpoint
+            const response = await fetch('http://localhost:3001/api/drafts/manual-send', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    sender: selectedSender, 
+                    content: replyText 
+                })
+            });
 
-            await sendDraft(draftId, replyText);
+            if (!response.ok) {
+                const err = await response.json();
+                throw new Error(err.message || "Failed to send");
+            }
+
             setReplyText("");
             setSelectedSender(null);
-            setIsMobileView(false); // Back to list on mobile after send
+            setIsMobileView(false);
             fetchData();
-        } catch (e) {
-            alert("Send failed");
+        } catch (e: any) {
+            alert(`Send Error: ${e.message}`);
         } finally {
             setLoading(false);
         }
@@ -70,7 +80,7 @@ export default function WhatsAppChatPage() {
 
     return (
         <div className="flex h-screen bg-[#f0f2f5] overflow-hidden font-sans text-[#111b21]">
-            {/* Sidebar / Chat List */}
+            {/* Sidebar */}
             <div className={`w-full md:w-1/3 bg-white border-r flex flex-col ${isMobileView ? 'hidden md:flex' : 'flex'}`}>
                 <header className="p-4 bg-[#f0f2f5] border-b flex justify-between items-center h-16">
                     <Link href="/" className="text-[#008069] font-bold">← Home</Link>

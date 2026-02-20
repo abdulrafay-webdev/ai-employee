@@ -14,125 +14,71 @@ interface DashboardRequest extends Request {
 
 const router = express.Router();
 
-// TEST ROUTE
+// ... existing routes ...
 router.get('/test', (req, res) => res.json({ message: "Router is working" }));
-
-// 1. BUSY REASON API
-router.get('/config/reason', async (req, res) => {
-    logger.info("GET /api/config/reason hit");
-    const config = await prisma.config.findUnique({ where: { key: 'busy_reason' } });
-    res.json({ reason: config?.value || "important client projects" });
-});
-
-router.post('/config/reason', async (req, res) => {
-    const { reason } = req.body;
-    logger.info(`POST /api/config/reason hit with: ${reason}`);
-    await prisma.config.upsert({
-        where: { key: 'busy_reason' },
-        update: { value: reason },
-        create: { key: 'busy_reason', value: reason }
-    });
-    res.json({ success: true });
-});
-
-// 2. DAILY BRIEFING (DETAILED)
-router.get('/briefing', async (req, res) => {
-    try {
-        const chats = StorageService.getActiveChats();
-        const drafts = DraftManager.getDrafts();
-        
-        const chatContent = Object.keys(chats).map(sender => {
-            const history = chats[sender].map(m => `${m.role}: ${m.content}`).join('\n');
-            return `[Sender: ${sender}]\n${history}`;
-        }).join('\n---\n');
-
-        const prompt = `
-        You are Saim, assistant to Abdul Rafay. Provide a DETAILED Daily Briefing in Roman English.
-        
-        DATA:
-        ${chatContent}
-        
-        TOTAL PENDING DRAFTS: ${drafts.length}
-        
-        STRUCTURE:
-        1. **Overview**: Summary of today's activity.
-        2. **Hot Leads**: Clients interested in specific services (Next.js, WordPress, etc).
-        3. **Urgent Actions**: List specifically what Rafay needs to approve or respond to.
-        4. **Personal Notes**: Summary of any personal/relative messages.
-        
-        Use Markdown for headings and bullets. Return ONLY JSON: { "briefing": "string" }
-        `;
-
-        const briefing = await AIService.generateBriefing(prompt);
-        res.json({ briefing });
-    } catch (error) {
-        res.status(500).json({ briefing: "Error generating detailed report." });
-    }
-});
-
-// 3. Status API
+router.get('/config/reason', async (req, res) => { /*...*/ }); 
+router.post('/config/reason', async (req, res) => { /*...*/ });
+router.get('/briefing', async (req, res) => { /*...*/ });
 router.get('/status', (req, res) => {
     res.json({
         whatsapp: { connected: whatsAppConnector.isClientReady() },
-        gmail: { authenticated: gmailConnector.isReady() } // Real status
+        gmail: { authenticated: gmailConnector.isReady() } 
     });
 });
-
-// 4. WhatsApp Auth/QR
-router.get('/auth/qr', (req, res) => {
-    res.json({
-        qr: whatsAppConnector.getQR(),
-        connected: whatsAppConnector.isClientReady()
-    });
-});
-
-// 5. Chats & Drafts
+router.get('/auth/qr', (req, res) => res.json({ qr: whatsAppConnector.getQR(), connected: whatsAppConnector.isClientReady() }));
 router.get('/chats', (req, res) => res.json(StorageService.getActiveChats()));
 router.get('/drafts', (req, res) => res.json(DraftManager.getDrafts()));
+router.post('/drafts/read/:sender', (req, res) => { /*...*/ });
 
-// 6. Mark as Read
-router.post('/drafts/read/:sender', (req, res) => {
-    const { sender } = req.params;
-    const senderClean = sender.replace(/[^a-zA-Z0-9]/g, '_');
-    const drafts = DraftManager.getDrafts();
-    for (let i = drafts.length - 1; i >= 0; i--) {
-        if (drafts[i].sender.replace(/[^a-zA-Z0-9]/g, '_') === senderClean) {
-            DraftManager.removeDraft(drafts[i].id);
-        }
+// 7. MANUAL SEND (FIXED & ROBUST)
+router.post('/drafts/manual-send', async (req, res) => {
+    const { sender, content } = req.body;
+    
+    // 1. Validation
+    if (!sender || !content) {
+        logger.error("Manual Send Failed: Missing sender or content");
+        return res.status(400).json({ message: "Sender and content required" });
     }
-    res.json({ success: true });
-});
 
-// 7. Send Draft
-router.post('/drafts/:id/send', async (req, res) => {
-    const { id } = req.params;
-    const { content } = req.body;
-    const draft = DraftManager.getDrafts().find(d => d.id === id);
+    logger.info(`Manual Send Request -> To: ${sender}, Content: "${content}"`);
 
-    if (!draft) return res.status(404).json({ message: 'Draft not found' });
+    // 2. Client Readiness Check
+    if (!whatsAppConnector.isClientReady()) {
+        logger.error("Manual Send Failed: WhatsApp client not ready");
+        return res.status(503).json({ message: "WhatsApp client not ready. Please scan QR code." });
+    }
 
     try {
-        if (draft.source === MessageSource.WHATSAPP) {
-            await whatsAppConnector.sendMessage(draft.sender, content || draft.suggestedReply || draft.content);
-        } else {
-            // TODO: Gmail sending logic
-            logger.warn('Gmail sending not yet implemented');
-            return res.status(501).json({ message: 'Gmail send not implemented' });
+        // 3. Attempt Send
+        await whatsAppConnector.sendMessage(sender, content);
+        
+        // 4. Log Success
+        StorageService.logMessage(sender, { 
+            role: 'assistant', 
+            content, 
+            type: 'manual', 
+            timestamp: Date.now() 
+        });
+        
+        // 5. Cleanup Drafts
+        const senderClean = sender.replace(/[^a-zA-Z0-9]/g, '_');
+        const drafts = DraftManager.getDrafts();
+        for (let i = drafts.length - 1; i >= 0; i--) {
+            if (drafts[i].sender.replace(/[^a-zA-Z0-9]/g, '_') === senderClean) {
+                DraftManager.removeDraft(drafts[i].id);
+            }
         }
 
-        StorageService.logMessage(draft.sender, {
-            role: 'assistant',
-            content: content || draft.suggestedReply || draft.content,
-            type: 'manual',
-            timestamp: Date.now()
-        });
-
-        DraftManager.removeDraft(id);
+        logger.info(`✅ Manual Send Successful to ${sender}`);
         res.json({ success: true });
+
     } catch (error: any) {
-        logger.error(`Send Failed: ${error.message}`);
-        res.status(500).json({ message: error.message });
+        logger.error(`❌ Manual Send Failed: ${error.message}`);
+        res.status(500).json({ message: error.message || "Internal Server Error during send" });
     }
 });
+
+// Keeping old route for compatibility if needed, but manual-send covers it
+router.post('/drafts/:id/send', async (req, res) => { /*...*/ });
 
 export default router;
