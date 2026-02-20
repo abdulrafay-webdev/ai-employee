@@ -26,7 +26,7 @@ export class WhatsAppConnector {
                     '--disable-accelerated-2d-canvas',
                     '--no-first-run',
                     '--no-zygote',
-                    '--single-process', // Critical for saving RAM
+                    '--single-process',
                     '--disable-gpu',
                     '--disable-canvas-aa',
                     '--disable-2d-canvas-clip-aa',
@@ -38,6 +38,7 @@ export class WhatsAppConnector {
 
         this.client.on('qr', (qr) => {
             this.lastQR = qr;
+            this.isReady = false; // Ensure it shows QR if disconnected
             logger.info('New QR Generated');
             qrcode.generate(qr, { small: true });
         });
@@ -46,6 +47,24 @@ export class WhatsAppConnector {
             this.isReady = true;
             this.lastQR = "";
             logger.info('✅ WhatsApp READY!');
+        });
+
+        this.client.on('authenticated', () => {
+            logger.info('WhatsApp Authenticated!');
+        });
+
+        this.client.on('auth_failure', () => {
+            this.isReady = false;
+            this.lastQR = "";
+            logger.error('WhatsApp Auth Failure');
+        });
+
+        this.client.on('disconnected', () => {
+            this.isReady = false;
+            this.lastQR = "";
+            logger.warn('WhatsApp Disconnected. Client needs re-auth.');
+            // Attempt to re-initialize to generate a new QR code
+            this.client.initialize().catch(() => {});
         });
 
         this.client.on('message', async (message) => {
