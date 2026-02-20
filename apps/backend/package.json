@@ -3,14 +3,13 @@
   "version": "0.1.0",
   "main": "dist/index.js",
   "scripts": {
-    "start": "node dist/apps/backend/src/index.js",
+    "start": "node dist/index.js",
     "dev": "ts-node -P tsconfig.json -r tsconfig-paths/register src/index.ts",
     "build": "tsc",
     "lint": "eslint . --ext .ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@personal-ai/shared": "*",
     "@prisma/client": "^5.9.1",
     "bullmq": "^5.1.0",
     "cors": "^2.8.5",
