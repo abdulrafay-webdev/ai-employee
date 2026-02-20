@@ -27,12 +27,18 @@ RUN npm install
 # Copy source code
 COPY . .
 
-# Build backend
+# IMPORTANT: Generate Prisma Client (This was the missing piece)
 WORKDIR /app/apps/backend
+RUN npx prisma generate
+
+# Build backend
 RUN npx tsc
+
+# Back to root
+WORKDIR /app
 
 # Expose port
 EXPOSE 3001
 
-# Start using the workspace command (Railway standard)
+# Start
 CMD ["npm", "run", "start"]
