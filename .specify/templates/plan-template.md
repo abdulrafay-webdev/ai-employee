@@ -31,7 +31,13 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- [ ] **Automation First**: Does the feature maximize automated handling? Is manual intervention minimized?
+- [ ] **Intelligent Escalation**: is there a clear path for high-importance/ambiguous items to reach a human?
+- [ ] **Automated Client Support**: If this is a client query, is there an automated answer strategy?
+- [ ] **Modular Skills**: Is the feature implemented as a distinct "skill" or module?
+- [ ] **Centralized Monitoring**: Does this feature expose metrics to the Next.js dashboard?
+- [ ] **Production-Ready**: Is the plan for code quality, testing, and documentation up to production standards?
+- [ ] **Secure Credentials**: Does the plan avoid hardcoding secrets? Does it include a flow to ask the user for credentials?
 
 ## Project Structure
 

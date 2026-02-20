@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "declaration": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "@personal-ai/shared": ["./shared/src/index.ts"]
+    }
+  },
+  "references": [
+    { "path": "./apps/backend" },
+    { "path": "./apps/dashboard" },
+    { "path": "./shared" }
+  ],
+  "include": ["src/**/*.ts", "apps/**/*.ts", "apps/**/*.tsx", "shared/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

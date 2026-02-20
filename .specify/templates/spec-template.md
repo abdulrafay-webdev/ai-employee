@@ -113,3 +113,11 @@
 - **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
 - **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"]
 - **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+
+## Constitution Compliance *(mandatory)*
+
+- [ ] **Automation First**: Does this feature primarily rely on automation? Justify any manual steps.
+- [ ] **Intelligent Escalation**: Are escalation paths defined for edge cases?
+- [ ] **Modular Skills**: Is this feature designed as an independent skill or module?
+- [ ] **Centralized Monitoring**: Are key metrics (success/failure/latency) exposed to the dashboard?
+- [ ] **Secure Credentials**: Are all secrets handled securely (env vars, user input)? No hardcoding?

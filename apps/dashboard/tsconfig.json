@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    "outDir": "../../dist/apps/dashboard",
+    "rootDir": "../../",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@personal-ai/shared": [
+        "../../shared/src/index.ts"
+      ]
+    },
+    "jsx": "preserve",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "target": "ES2020",
+    "lib": [
+      "DOM",
+      "ES2020",
+      "DOM.Iterable"
+    ],
+    "allowJs": true,
+    "noEmit": true,
+    "incremental": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strict": false
+  },
+  "include": [
+    "src/**/*",
+    ".next/types/**/*.ts",
+    "../../shared/src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.spec.ts"
+  ]
+}

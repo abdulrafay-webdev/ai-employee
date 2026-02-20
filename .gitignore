@@ -1,0 +1,23 @@
+# Node.js
+node_modules/
+dist/
+build/
+coverage/
+*.log
+.env
+.env.local
+.DS_Store
+
+# Next.js
+.next/
+out/
+
+# SQLite
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# Whatsapp Web
+.wwebjs_auth/
+.wwebjs_cache/

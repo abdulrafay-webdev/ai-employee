@@ -146,10 +146,15 @@ Examples of foundational tasks (adjust based on your project):
 
 ---
 
-## Phase N: Polish & Cross-Cutting Concerns
+## Phase N: Constitution Compliance & Polish
 
-**Purpose**: Improvements that affect multiple user stories
+**Purpose**: Improvements that ensure strict adherence to core principles and production readiness
 
+- [ ] TXXX [P] Verify **Automation First**: Are all possible steps automated?
+- [ ] TXXX [P] Verify **Intelligent Escalation**: Do failed automations correctly route to manual review?
+- [ ] TXXX [P] Verify **Modular Skills**: Is the code modular and encapsulated?
+- [ ] TXXX [P] Verify **Centralized Monitoring**: Are metrics flowing to the Next.js dashboard?
+- [ ] TXXX [P] Verify **Secure Credentials**: Scan for hardcoded secrets; verify prompt flow works.
 - [ ] TXXX [P] Documentation updates in docs/
 - [ ] TXXX Code cleanup and refactoring
 - [ ] TXXX Performance optimization across all stories

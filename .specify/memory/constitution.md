@@ -1,55 +1,34 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# Personal AI Employee Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Automation First
+The system MUST prioritize automated handling of all tasks. The primary goal is to achieve zero-touch processing for messages, emails, and queries, minimizing the need for human intervention.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Intelligent Escalation
+Messages or queries that are identified as high-importance, ambiguous, or failing automation rules MUST be moved to a draft/manual review queue. They should never be dropped or ignored.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Automated Client Support
+All client and service-related queries with identifiable solutions MUST be answered automatically. The system should leverage a knowledge base or predefined skills to provide instant, accurate responses.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Modular, Skill-Based Architecture
+The system MUST be built on a modular architecture where discrete functionalities are encapsulated as "skills." Each skill should be independently developable, testable, and deployable to encourage scalability and maintainability.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Centralized Monitoring
+A monitoring dashboard built with Next.js MUST be provided. This dashboard will serve as the single pane of glass for observing system status, automation rates, and manual review queues.
 
-### [PRINCIPLE_6_NAME]
+### VI. Production-Ready Code
+All code committed to the repository MUST be clean, well-documented, and adhere to production-quality standards. This includes comprehensive testing and clear, maintainable logic.
 
+### VII. Secure Credential Handling
+The system MUST NEVER assume credentials or hardcode sensitive information. When an API key, login, or other secret is required, the system MUST ask for it and provide clear instructions on how and where to obtain it.
 
-[PRINCIPLE__DESCRIPTION]
+## Development Workflow
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
-
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+The development process will follow a test-driven development (TDD) approach where appropriate. All new features or skills must include corresponding unit and integration tests. Code reviews are mandatory for all changes.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This Constitution is the authoritative source for all project standards and practices. All development work, code reviews, and architectural decisions must align with these principles. Amendments to this document require team consensus and must be recorded with a version bump.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-02-18 | **Last Amended**: 2026-02-18
