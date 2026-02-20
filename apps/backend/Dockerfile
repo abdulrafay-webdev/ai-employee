@@ -19,26 +19,20 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
-COPY apps/backend/package*.json ./apps/backend/
-COPY shared/package*.json ./shared/
+# Copy backend package files
+COPY apps/backend/package*.json ./
 
 # Install dependencies
 RUN npm install
 
-# Copy source code
-COPY . .
+# Copy backend source (which now includes local shared/ folder)
+COPY apps/backend/ .
 
-# Build backend (The tsconfig will now pull shared files automatically into dist)
-WORKDIR /app/apps/backend
+# Build backend
 RUN npx tsc
 
-# Verify directory structure
-RUN ls -R dist
-
-# Expose backend port
+# Expose port
 EXPOSE 3001
 
 # Start the application pointing to the exact compiled index
-CMD ["node", "dist/apps/backend/src/index.js"]
+CMD ["node", "dist/index.js"]

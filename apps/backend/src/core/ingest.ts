@@ -1,4 +1,4 @@
-import { Message, MessageSource, Classification } from '@personal-ai/shared';
+import { Message, MessageSource, Classification } from '../shared/types';
 import { logger } from '../core/logger';
 import { processMessage } from './processor'; // Import the new processor
 import crypto from 'crypto';

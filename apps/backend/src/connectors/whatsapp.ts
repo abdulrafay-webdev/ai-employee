@@ -1,7 +1,7 @@
 import { Client, LocalAuth } from 'whatsapp-web.js';
 import qrcode from 'qrcode-terminal';
 import { logger } from '../core/logger';
-import { MessageSource } from '@personal-ai/shared';
+import { MessageSource } from '../shared/types';
 import { ingestMessage } from '../core/ingest';
 import { config } from '../config/env'; 
 

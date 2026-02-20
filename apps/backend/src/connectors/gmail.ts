@@ -1,7 +1,7 @@
 import { google } from 'googleapis';
 import { config } from '../config/env';
 import { logger } from '../core/logger';
-import { Message, MessageSource } from '@personal-ai/shared';
+import { Message, MessageSource } from '../shared/types';
 import { ingestMessage } from '../core/ingest';
 
 export class GmailConnector {

@@ -1,4 +1,4 @@
-import { Message, Classification, MessageSource } from '@personal-ai/shared';
+import { Message, Classification, MessageSource } from '../shared/types';
 import { logger } from './logger';
 import { AIService } from './ai';
 import { DraftManager } from './draft_manager';
