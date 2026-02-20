@@ -1,6 +1,7 @@
 import { Message } from '@personal-ai/shared';
 
-const API_BASE_URL = 'http://localhost:3001/api';
+// Get backend URL from environment variable (Vercel) or fallback to local
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
 
 /**
  * Generic fetcher to handle API calls
@@ -32,7 +33,5 @@ export const fetchBriefing = () => apiFetch('/briefing');
 export const sendDraft = (draftId: string, content?: string) => apiFetch(`/drafts/${draftId}/send`, { method: 'POST', body: JSON.stringify({ content }) });
 export const markAsRead = (sender: string) => apiFetch(`/drafts/read/${sender}`, { method: 'POST' });
 export const fetchQR = () => apiFetch('/auth/qr');
-
-// NEW: Config API
 export const fetchBusyReason = () => apiFetch('/config/reason');
 export const updateBusyReason = (reason: string) => apiFetch('/config/reason', { method: 'POST', body: JSON.stringify({ reason }) });
